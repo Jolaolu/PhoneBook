@@ -1,0 +1,19 @@
+<head>
+  <title>PhoneBook</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Welcome to Meteor!</h1>
+    <ul class="collection"> 
+      {{#each book}}
+        {{> phoneBook}}
+      {{/each}}
+    </ul>
+  </div>
+</body>
+
+<template name ="phoneBook">
+  <li class="collection-item">My Phone Book</li>
+</template>
+
