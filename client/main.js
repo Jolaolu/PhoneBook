@@ -12,6 +12,39 @@ Template.body.helpers({
 
     ]*/
      phoneBooks() {
-        return Books.find({});
+        return Books.find({}, {sort: { CreatedAt:-1}});
     }
-})
+});
+
+Template.add.events({
+    'submit .add-form':function(){
+      event.preventDefault();
+            
+      const target = event.target;
+      const name = target.name.value;
+      const number = target.number.value;
+
+
+                // Store to database in collecion
+                Books.insert({
+                    name,
+                    CreatedAt: new Date(),
+                });
+   
+                
+
+                console.log(name + " | " + number);
+                
+                 //name.value = "";
+                 
+          
+            
+
+            
+     return false;
+
+    }
+
+     
+
+});

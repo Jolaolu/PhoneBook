@@ -6,21 +6,51 @@
   <nav class="red">
     <div class="container">
       <div class="nav-wrapper"> 
-        <a href="#" class=" right hide-on-med-and-down" ></a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down "> </ul>
+        <a href="#" class="brand-logo"> PhoneBook</a>
+        <ul id="nav-mobile" class= "right hide-on-med-and-down">
+          <li class="nav-item">
+            <a href="#addModal" class="waves-effect waves-light btn modal-trigger">New Contact</a>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>
+
+  
   <div class="container">
-    <h1>New Phone Numbers</h1>
+    <h1>Contacts</h1>
     <ul class="collection"> 
       {{#each phoneBooks}}
         {{> phoneBook}}
       {{/each}}
     </ul>
   </div>
+
+  {{> add}};
+  
+ <script>
+    $(document).ready(function(){
+      $('.modal').modal();
+    });
+
+  </script>
 </body>
 
 <template name = "phoneBook">
   <li class ="collection-item">{{text}}</li>
+</template> 
+
+<template name ="add">
+  <!--Modal Structure -->
+  <div id ="addModal" class="modal">
+    <div class="modal-content">
+      <h3>Add New Contact</h3>
+        <form class="add-form">
+          <input type="text" name="name" id="contactName" placeholder="Input Name">
+         <input type="tel" name="number" id="contactNumber" placeholder="Input Phone Number">
+         <button id = "submitButton" class="modal-close waves-effect waves-green btn-flat " type="submit" style=" float: right;">Add Contact</button>
+        </form>
+    </div>
+
+  </div>
 </template> 
